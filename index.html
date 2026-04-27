@@ -99,7 +99,11 @@
                 <button id="abrirModal">Selecione Agenda</button>
                 
                 <div id="listaOpcoes" class="lista-suspensa hidden">
-                    <h3>Escolha a data:</h3>
+                      <div class="topo-lista">
+                        <h3>Escolha a data:</h3>
+                        <!-- Novo botão para fechar sem selecionar -->
+                        <button type="button" id="fecharLista" class="btn-fechar-lista">&times;</button>
+                    </div>
                     <div class="opcoes-container">
                         <label class="item-lista">
                             <input type="radio" name="opcao_unica" value="03/05 - Kennedy 08 as 10"> 03/05 - Kennedy 08 as 10 
