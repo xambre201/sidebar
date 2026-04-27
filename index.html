@@ -126,7 +126,54 @@
 
 
     </main>
+    
     <script src="src/javascript/script.js"></script>
-    <script src="src/javascript/agenda.js"></script>
+    
+    <script>
+    // Garante que o código só rode após o HTML carregar completamente
+    document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById('meuModal');
+        const btnAbrir = document.getElementById('abrirModal');
+        const btnConfirmar = document.getElementById('confirmar');
+        const btnLimparModal = document.getElementById('limparModal');
+        const btnRemoverGeral = document.getElementById('removerSelecao');
+        
+        const areaResultado = document.getElementById('areaResultado');
+        const textoResultado = document.getElementById('textoResultado');
+        const form = document.getElementById('formSelecao');
+
+        // Verifica se os elementos básicos existem antes de atribuir eventos
+        if (btnAbrir && modal) {
+            btnAbrir.onclick = () => {
+                modal.showModal();
+            };
+        }
+
+        if (btnConfirmar) {
+            btnConfirmar.onclick = (e) => {
+                const selecionado = document.querySelector('input[name="opcao_unica"]:checked');
+                if (selecionado) {
+                    textoResultado.textContent = selecionado.value;
+                    areaResultado.style.visibility = "visible";
+                }
+            };
+        }
+
+        if (btnLimparModal) {
+            btnLimparModal.onclick = () => {
+                form.reset();
+            };
+        }
+
+        if (btnRemoverGeral) {
+            btnRemoverGeral.onclick = () => {
+                form.reset();
+                areaResultado.style.visibility = "hidden";
+                textoResultado.textContent = "";
+            };
+        }
+    });
+</script>
+
 </body>
 </html>
