@@ -166,8 +166,14 @@ main {
     gap: 14px;
 }
 
-.container-selecao { display: flex; align-items: center; gap: 10px; }
-    
+.container-selecao {
+    display: flex;
+    flex-direction: column; /* Alinha os itens um em cima do outro */
+    align-items: flex-start; /* Alinha o conteúdo à esquerda (opcional) */
+    gap: 10px; /* Cria um espaço entre o botão e o resultado */
+}
+
+   
     button { padding: 8px 12px; cursor: pointer; border-radius: 4px; border: 1px solid #ccc; }
     
     /* Estilo do resultado e do botão de remover */
