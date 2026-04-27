@@ -95,8 +95,38 @@
     </nav>
 
     <main>
-   
 
+    <div id="listaOpcoes" class="lista-suspensa hidden">
+    <div class="topo-lista">
+        <h3>Escolha a data:</h3>
+        <!-- Novo botão para fechar sem selecionar -->
+        <button type="button" id="fecharLista" class="btn-fechar-lista">&times;</button>
+    </div>
+    
+
+          <div class="opcoes-container">
+            <label class="item-lista">
+                <input type="radio" name="opcao_unica" value="03/05 - Kennedy 08 as 10"> 03/05 - Kennedy 08 as 10 
+            </label>
+            <label class="item-lista">
+                <input type="radio" name="opcao_unica" value="07/06 - Penka 10 as 12"> 07/06 - Penka 10 as 12 
+            </label>
+            <label class="item-lista">
+                <input type="radio" name="opcao_unica" value="12/07 - Cancum 20 as 22"> 12/07 - Cancum 20 as 22 
+            </label>
+        </div>
+    </div>
+
+    <div class="botoes-modal">
+        <button type="button" id="limparModal" class="btn-limpar">Limpar</button>
+    </div>
+</div>
+
+
+
+
+
+        
     
 
     <div class="container-selecao">
@@ -132,41 +162,49 @@
     <script src="src/javascript/script.js"></script>
     
     <script>
-   const btnAbrir = document.getElementById('abrirModal');
+  const btnAbrir = document.getElementById('abrirModal');
 const lista = document.getElementById('listaOpcoes');
 const areaResultado = document.getElementById('areaResultado');
 const textoResultado = document.getElementById('textoResultado');
 const radios = document.querySelectorAll('input[name="opcao_unica"]');
+const btnFecharLista = document.getElementById('fecharLista');
 
-// 1. Abre/Fecha a lista ao clicar no botão
-btnAbrir.addEventListener('click', () => {
+// 1. Abre/Fecha a lista
+btnAbrir.addEventListener('click', (e) => {
+    e.stopPropagation(); // Impede o clique de chegar no 'window'
     lista.classList.toggle('hidden');
 });
 
-// 2. ESCUTA A SELEÇÃO: Quando clicar em qualquer rádio, ele já confirma
+// 2. Seleção automática
 radios.forEach(radio => {
     radio.addEventListener('change', () => {
         if (radio.checked) {
-            textoResultado.innerText = radio.value; // Coloca o texto no badge
-            areaResultado.classList.remove('hidden'); // Mostra o badge
-            lista.classList.add('hidden'); // Fecha a lista automaticamente
+            textoResultado.innerText = radio.value;
+            areaResultado.classList.remove('hidden'); // MOSTRA o badge completo
+            lista.classList.add('hidden');
         }
     });
 });
 
-// 3. Botão Remover (X)
+// 3. Botão Remover (X) do Badge
 document.getElementById('removerSelecao').addEventListener('click', () => {
-    areaResultado.classList.add('hidden'); // Esconde o badge
-    textoResultado.innerText = "";        // LIMPA O TEXTO DO BADGE
-    
-    // Desmarca os rádios para que nenhum apareça selecionado ao abrir de novo
-    radios.forEach(r => r.checked = false); 
-});
-
-// 4. Botão Limpar (dentro da lista)
-document.getElementById('limparModal').addEventListener('click', () => {
+    areaResultado.classList.add('hidden'); // ESCONDE o badge completo (texto + botão X)
+    textoResultado.innerText = "";
     radios.forEach(r => r.checked = false);
 });
+
+// 4. Botão Fechar da Lista (o novo "X" da lista)
+btnFecharLista.addEventListener('click', () => {
+    lista.classList.add('hidden');
+});
+
+// 5. Fechar ao clicar fora da lista
+window.addEventListener('click', (e) => {
+    if (!lista.contains(e.target) && e.target !== btnAbrir) {
+        lista.classList.add('hidden');
+    }
+});
+
 
 </script>
 
