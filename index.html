@@ -95,67 +95,32 @@
     </nav>
 
     <main>
-
-    <div id="listaOpcoes" class="lista-suspensa hidden">
-    <div class="topo-lista">
-        <h3>Escolha a data:</h3>
-        <!-- Novo botão para fechar sem selecionar -->
-        <button type="button" id="fecharLista" class="btn-fechar-lista">&times;</button>
-    </div>
-    
-
-          <div class="opcoes-container">
-            <label class="item-lista">
-                <input type="radio" name="opcao_unica" value="03/05 - Kennedy 08 as 10"> 03/05 - Kennedy 08 as 10 
-            </label>
-            <label class="item-lista">
-                <input type="radio" name="opcao_unica" value="07/06 - Penka 10 as 12"> 07/06 - Penka 10 as 12 
-            </label>
-            <label class="item-lista">
-                <input type="radio" name="opcao_unica" value="12/07 - Cancum 20 as 22"> 12/07 - Cancum 20 as 22 
-            </label>
-        </div>
-    </div>
-
-    <div class="botoes-modal">
-        <button type="button" id="limparModal" class="btn-limpar">Limpar</button>
-    </div>
-</div>
-
-
-
-
-
-        
-    
-
-    <div class="container-selecao">
-    <button id="abrirModal">Selecione Agenda</button>
-    
-    <div id="listaOpcoes" class="lista-suspensa hidden">
-        <h3>Escolha a data:</h3>
-        <div class="opcoes-container">
-            <label class="item-lista">
-                <input type="radio" name="opcao_unica" value="03/05 - Kennedy 08 as 10"> 03/05 - Kennedy 08 as 10 
-            </label>
-            <label class="item-lista">
-                <input type="radio" name="opcao_unica" value="07/06 - Penka 10 as 12"> 07/06 - Penka 10 as 12 
-            </label>
-            <label class="item-lista">
-                <input type="radio" name="opcao_unica" value="12/07 - Cancum 20 as 22"> 12/07 - Cancum 20 as 22 
-            </label>
-        </div>
-        <!-- Botão Limpar continua caso o usuário queira desmarcar antes de fechar -->
-        <button type="button" id="limparModal" class="btn-limpar">Limpar</button>
-    </div>
-
-    <div id="areaResultado" class="badge-resultado hidden">
-        <span id="textoResultado"></span>
-        <button id="removerSelecao" class="btn-remover">×</button>
-    </div>
-</div>
-
-
+            <div class="container-selecao">
+                <button id="abrirModal">Selecione Agenda</button>
+                
+                <div id="listaOpcoes" class="lista-suspensa hidden">
+                    <h3>Escolha a data:</h3>
+                    <div class="opcoes-container">
+                        <label class="item-lista">
+                            <input type="radio" name="opcao_unica" value="03/05 - Kennedy 08 as 10"> 03/05 - Kennedy 08 as 10 
+                        </label>
+                        <label class="item-lista">
+                            <input type="radio" name="opcao_unica" value="07/06 - Penka 10 as 12"> 07/06 - Penka 10 as 12 
+                        </label>
+                        <label class="item-lista">
+                            <input type="radio" name="opcao_unica" value="12/07 - Cancum 20 as 22"> 12/07 - Cancum 20 as 22 
+                        </label>
+                    </div>
+                    <!-- Botão Limpar continua caso o usuário queira desmarcar antes de fechar -->
+                    <button type="button" id="limparModal" class="btn-limpar">Limpar</button>
+                </div>
+            
+                <div id="areaResultado" class="badge-resultado hidden">
+                    <span id="textoResultado"></span>
+                    <button id="removerSelecao" class="btn-remover">×</button>
+                </div>
+            </div>
+            
 
     </main>
     
