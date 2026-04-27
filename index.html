@@ -156,8 +156,11 @@ radios.forEach(radio => {
 
 // 3. Botão Remover (X)
 document.getElementById('removerSelecao').addEventListener('click', () => {
-    areaResultado.classList.add('hidden');
-    radios.forEach(r => r.checked = false); // Desmarca os rádios
+    areaResultado.classList.add('hidden'); // Esconde o badge
+    textoResultado.innerText = "";        // LIMPA O TEXTO DO BADGE
+    
+    // Desmarca os rádios para que nenhum apareça selecionado ao abrir de novo
+    radios.forEach(r => r.checked = false); 
 });
 
 // 4. Botão Limpar (dentro da lista)
