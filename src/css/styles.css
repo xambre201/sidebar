@@ -165,3 +165,30 @@ main {
     justify-content: flex-start;
     gap: 14px;
 }
+
+.container-selecao { display: flex; align-items: center; gap: 10px; }
+    
+    button { padding: 8px 12px; cursor: pointer; border-radius: 4px; border: 1px solid #ccc; }
+    
+    /* Estilo do resultado e do botão de remover */
+    .badge-resultado { 
+        display: flex; 
+        align-items: center; 
+        gap: 8px; 
+        background: #e7f3ff; 
+        color: #007bff; 
+        padding: 5px 10px; 
+        border-radius: 20px; 
+        font-weight: bold;
+        visibility: hidden; /* Escondido até ter uma seleção */
+    }
+    .btn-remover { border: none; background: none; color: #ff4d4d; font-weight: bold; cursor: pointer; padding: 0 5px; }
+
+    /* Modal */
+    dialog { border: none; border-radius: 8px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); width: 250px; }
+    dialog::backdrop { background: rgba(0, 0, 0, 0.5); }
+    .item-lista { display: block; margin-bottom: 12px; cursor: pointer; }
+    
+    .botoes-modal { margin-top: 20px; display: flex; justify-content: space-between; gap: 10px; }
+    .btn-limpar { background-color: #fff; color: #666; }
+    .btn-confirmar { background-color: #007bff; color: white; border: none; }
