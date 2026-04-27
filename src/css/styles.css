@@ -167,34 +167,39 @@ main {
 }
 
 .container-selecao {
+    position: relative; /* Base para posicionar a lista */
     display: flex;
-    flex-direction: column; /* Alinha os itens um em cima do outro */
-    align-items: flex-start; /* Alinha o conteúdo à esquerda (opcional) */
-    gap: 10px; /* Cria um espaço entre o botão e o resultado */
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
 }
 
-   
-    button { padding: 8px 12px; cursor: pointer; border-radius: 4px; border: 1px solid #ccc; }
-    
-    /* Estilo do resultado e do botão de remover */
-    .badge-resultado { 
-        display: flex; 
-        align-items: center; 
-        gap: 8px; 
-        background: #e7f3ff; 
-        color: #007bff; 
-        padding: 5px 10px; 
-        border-radius: 20px; 
-        font-weight: bold;
-        visibility: hidden; /* Escondido até ter uma seleção */
-    }
-    .btn-remover { border: none; background: none; color: #ff4d4d; font-weight: bold; cursor: pointer; padding: 0 5px; }
+.lista-suspensa {
+    position: absolute;
+    top: 45px; /* Fica logo abaixo do botão */
+    left: 0;
+    z-index: 10;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
-    /* Modal */
-    dialog { border: none; border-radius: 8px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); width: 250px; }
-    dialog::backdrop { background: rgba(0, 0, 0, 0.5); }
-    .item-lista { display: block; margin-bottom: 12px; cursor: pointer; }
-    
-    .botoes-modal { margin-top: 20px; display: flex; justify-content: space-between; gap: 10px; }
-    .btn-limpar { background-color: #fff; color: #666; }
-    .btn-confirmar { background-color: #007bff; color: white; border: none; }
+.item-lista {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none; /* Classe para esconder os elementos */
+}
+
+.badge-resultado {
+    display: flex;
+    align-items: center;
+    background: #e0f0ff;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
