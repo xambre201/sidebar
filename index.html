@@ -95,9 +95,36 @@
     </nav>
 
     <main>
-        <h1>AGENDA</h1></br>
-        <h1>Confirmação</h1></br>
-        <h1>Mensagem</h1>
+       <div class="container-selecao">
+    <button id="abrirModal">Selecione uma opção</button>
+    
+    <div id="areaResultado" class="badge-resultado">
+        <span id="textoResultado"></span>
+        <button id="removerSelecao" class="btn-remover" title="Remover seleção">×</button>
+    </div>
+</div>
+
+<dialog id="meuModal">
+    <h3>Escolha um item:</h3>
+    <form id="formSelecao" method="dialog">
+        <label class="item-lista">
+            <input type="radio" name="opcao_unica" value="Item 1"> Item 1
+        </label>
+        <label class="item-lista">
+            <input type="radio" name="opcao_unica" value="Item 2"> Item 2
+        </label>
+        <label class="item-lista">
+            <input type="radio" name="opcao_unica" value="Item 3"> Item 3
+        </label>
+
+        <div class="botoes-modal">
+            <button type="button" id="limparModal" class="btn-limpar">Limpar</button>
+            <button type="submit" id="confirmar" class="btn-confirmar">Confirmar</button>
+        </div>
+    </form>
+</dialog>
+
+
     </main>
     <script src="src/javascript/script.js"></script>
     <script src="src/javascript/agenda"></script>
