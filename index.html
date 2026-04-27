@@ -156,49 +156,39 @@
     <script src="src/javascript/script.js"></script>
     
     <script>
-    // Garante que o código só rode após o HTML carregar completamente
-    document.addEventListener('DOMContentLoaded', () => {
-        const modal = document.getElementById('meuModal');
-        const btnAbrir = document.getElementById('abrirModal');
-        const btnConfirmar = document.getElementById('confirmar');
-        const btnLimparModal = document.getElementById('limparModal');
-        const btnRemoverGeral = document.getElementById('removerSelecao');
-        
-        const areaResultado = document.getElementById('areaResultado');
-        const textoResultado = document.getElementById('textoResultado');
-        const form = document.getElementById('formSelecao');
+   const btnAbrir = document.getElementById('abrirModal');
+const lista = document.getElementById('listaOpcoes');
+const areaResultado = document.getElementById('areaResultado');
+const textoResultado = document.getElementById('textoResultado');
+const radios = document.querySelectorAll('input[name="opcao_unica"]');
 
-        // Verifica se os elementos básicos existem antes de atribuir eventos
-        if (btnAbrir && modal) {
-            btnAbrir.onclick = () => {
-                modal.showModal();
-            };
-        }
+// 1. Abre/Fecha a lista ao clicar no botão
+btnAbrir.addEventListener('click', () => {
+    lista.classList.toggle('hidden');
+});
 
-        if (btnConfirmar) {
-            btnConfirmar.onclick = (e) => {
-                const selecionado = document.querySelector('input[name="opcao_unica"]:checked');
-                if (selecionado) {
-                    textoResultado.textContent = selecionado.value;
-                    areaResultado.style.visibility = "visible";
-                }
-            };
-        }
-
-        if (btnLimparModal) {
-            btnLimparModal.onclick = () => {
-                form.reset();
-            };
-        }
-
-        if (btnRemoverGeral) {
-            btnRemoverGeral.onclick = () => {
-                form.reset();
-                areaResultado.style.visibility = "hidden";
-                textoResultado.textContent = "";
-            };
+// 2. ESCUTA A SELEÇÃO: Quando clicar em qualquer rádio, ele já confirma
+radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+        if (radio.checked) {
+            textoResultado.innerText = radio.value; // Coloca o texto no badge
+            areaResultado.classList.remove('hidden'); // Mostra o badge
+            lista.classList.add('hidden'); // Fecha a lista automaticamente
         }
     });
+});
+
+// 3. Botão Remover (X)
+document.getElementById('removerSelecao').addEventListener('click', () => {
+    areaResultado.classList.add('hidden');
+    radios.forEach(r => r.checked = false); // Desmarca os rádios
+});
+
+// 4. Botão Limpar (dentro da lista)
+document.getElementById('limparModal').addEventListener('click', () => {
+    radios.forEach(r => r.checked = false);
+});
+
 </script>
 
 </body>
